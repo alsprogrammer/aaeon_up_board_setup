@@ -28,7 +28,7 @@ Change the *fabric.yaml* file (set the user name for the Ubuntu you just install
 
 Then run the script
 
-    fab --prompt-for-login-password --prompt-for-sudo-password -H UP_BOARD_IP connection-test
+    fab --prompt-for-login-password --prompt-for-sudo-password -H UP_BOARD_IP get-system-ready
     
 You'll be asked to enter the user's login password for your Up Board Ubuntu account and then ssh password for the Up Board. 
 
