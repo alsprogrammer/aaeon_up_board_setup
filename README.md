@@ -30,7 +30,9 @@ Then run the script
 
     fab --prompt-for-login-password --prompt-for-sudo-password -H UP_BOARD_IP get-system-ready
     
-You'll be asked to enter the user's login password for your Up Board Ubuntu account and then ssh password for the Up Board. 
+You'll be asked to enter the user's login password for your Up Board Ubuntu account and then ssh password for the Up Board.
+
+Then answer *yes* if you would be asked. 
 
 After all, the script will ask you to reboot the board.
 
