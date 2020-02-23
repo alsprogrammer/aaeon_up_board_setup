@@ -55,3 +55,15 @@ To do that, just perform
 You should note  Python 3.6 is the default python3 interpreter in the Up Board repositories. All the libs are provided for this particular interpreter.
 
 Probably I would upgrade these versions as default python3 version becomes more contemporary in the Up Board repos.  
+
+If you want to work with ROS too, just perform
+
+    fab --prompt-for-login-password --prompt-for-sudo-password -H UP_BOARD_IP install-ros
+    
+(this feature is not fully tested yet).
+
+Do not forget, if you are going to use installed ROS, before every use you have to perform
+
+    source /opt/ros/melodic/setup.bash
+    
+command in every session you are going to work with ROS. 
