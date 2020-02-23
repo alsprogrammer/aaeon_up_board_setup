@@ -1,6 +1,5 @@
 # Aaeon Up board setup
 
-## (Do not use this repository, it's under construction now!)
 
 At the moment my favorite single board computer for the robotics applications  is [Aaeon Up Board](https://www.aaeon.com/en/p/up-board-computer-board-for-professional-makers) (even despite the fact it's not as popular as Raspberry Pi).
 
@@ -8,11 +7,11 @@ You can use all the library and frameworks developed for the "big" computer on i
 
 Here is a Fabric script for installing Ubuntu kernel 4.15.0 for UP from PPA on Ubuntu 18.04.
 
-You have to have installed fabric 2.5.0 on your computer. To do that, just perform the command
+You have to have fabric 2.5.0 installed on your computer. To do that, just perform the command
 
     sudo python3 -m pip install fabric==2.5.0
     
-(or use *venv* or *conda* for installation).
+(or use *venv* or *conda* for installation). Or you can install it later, after the repo is cloned.
 
 Clone this repository
 
@@ -25,6 +24,10 @@ cd into the *aaeon_up_board_setup* directory
 Install Ubuntu 18.04 on your Up Board (follow the typical instructions).
 
 Change the *fabric.yaml* file (set the user name for the Ubuntu you just installed on your Up Board) 
+
+If fabric 2.5.0 in not installed on your computer, you may run the command
+
+    sudo python3 -m pip install -r requirements.txt
 
 Then run the script
 
@@ -39,3 +42,16 @@ After all, the script will ask you to reboot the board.
 That's all.
 
 Enjoy! :)
+
+If you want to use robotics applications on your board just as I do, there's more. You can add pip, NumPy, OpenCV, and TensorFlow Lite.
+
+It also adds my own library, [FuzzyPy](https://github.com/alsprogrammer/PythonFuzzyLogic) ;)
+
+To do that, just perform
+
+
+    fab --prompt-for-login-password --prompt-for-sudo-password -H UP_BOARD_IP install-robotics
+    
+You should note  Python 3.6 is the default python3 interpreter in the Up Board repositories. All the libs are provided for this particular interpreter.
+
+Probably I would upgrade these versions as default python3 version becomes more contemporary in the Up Board repos.  
