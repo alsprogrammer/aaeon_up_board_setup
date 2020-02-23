@@ -119,6 +119,7 @@ def install_userspace(context):
     perform_sudo(context, 'usermod -a -G i2c ${USER}', "Couldn't add user to i2c group")
     perform_sudo(context, 'usermod -a -G dialout ${USER}', "Couldn't add user to uart group")
     perform_sudo(context, 'python3 -m pip install RPi.GPIO', "Couldn't install packets")
+    perform_sudo(context, 'apt -y install python-smbus', "Couldn't install packets")
     print("Up board user space hardware drivers installed")
     print("The device needs to be rebooted")
 
