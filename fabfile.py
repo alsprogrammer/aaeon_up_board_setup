@@ -40,6 +40,7 @@ def put_file(context, file_name, destination_path):
 def get_system_ready(c):
     update_upgrade(c)
     install_kernel(c)
+    install_networking(c)
     install_robotics(c)
 
 
@@ -122,6 +123,12 @@ def install_userspace(context):
     perform_sudo(context, 'apt -y install python3-smbus', "Couldn't install packets")
     print("Up board user space hardware drivers installed")
     print("The device needs to be rebooted")
+
+
+@task
+def install_networking(context):
+    perform_sudo(context, 'apt -y install ifupdown', "Couldn't install wpasupplicant")
+    perform_sudo(context, 'apt -y install wpasupplicant', "Couldn't install wpasupplicant")
 
 
 @task
