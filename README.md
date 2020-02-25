@@ -21,7 +21,7 @@ cd into the *aaeon_up_board_setup* directory
 
     cd aaeon_up_board_setup
     
-Install Ubuntu 18.04 on your Up Board (follow the typical instructions).
+Install Ubuntu 16.04 on your Up Board (follow the typical instructions).
 
 Change the *fabric.yaml* file (set the user name for the Ubuntu you just installed on your Up Board) 
 
@@ -64,6 +64,6 @@ If you want to work with ROS too, just perform
 
 Do not forget, if you are going to use installed ROS, before every use you have to perform
 
-    source /opt/ros/melodic/setup.bash
+    source /opt/ros/kinetic/setup.bash
     
 command in every session you are going to work with ROS. 
