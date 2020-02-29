@@ -147,7 +147,19 @@ def install_ros(context):
     perform_run(context, 'rosdep update', "Couldn't update rodep")
     print('The ROS Kinetic has been installed. Please reboot the board')
 
+
 @task
 def install_pytorch(context):
     perform_sudo(context, 'python3 -m pip install torch==1.4.0+cpu torchvision==0.5.0+cpu -f https://download.pytorch.org/whl/torch_stable.html', "Couldn't install pytorch")
     print('PyTorch installed')
+
+
+@task
+def install_google_coral(context):
+    perform_sudo(context, 'apt-get update', "Couldn't perform update")
+    perform_commands_sudo(context, 'echo "deb https://packages.cloud.google.com/apt coral-edgetpu-stable main" | sudo tee /etc/apt/sources.list.d/coral-edgetpu.list', "Couldn't install coral repo")
+    perform_commands_sudo(context, 'curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -', "Couldn't add coral key")
+    perform_sudo(context, 'apt-get install libedgetpu1-std', "Couldn't install libedgetpu")
+    perform_sudo(context, 'apt-get install edgetpu python3-edgetpu', "Couldn't perform update")
+    perform_sudo(context, 'pip3 install https://dl.google.com/coral/python/tflite_runtime-2.1.0.post1-cp35-cp35m-linux_x86_64.whl', "Couldn't perform update")
+    put_file(context, './coral_test.py', './coral_test.py')

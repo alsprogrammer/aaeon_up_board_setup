@@ -67,3 +67,12 @@ Do not forget, if you are going to use installed ROS, before every use you have 
     source /opt/ros/kinetic/setup.bash
     
 command in every session you are going to work with ROS. 
+
+To install Google Coral Edge TPU (USB version), perform the command
+
+    fab --prompt-for-login-password --prompt-for-sudo-password -H 192.168.0.101 install-google-coral
+    
+To check if it's working, reattach the device and then run
+
+    python3 coral_test.py
+    
